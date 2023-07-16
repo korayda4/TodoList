@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    background: linear-gradient(0deg, rgb(74, 0, 76) 0%, rgb(24, 0, 68) 100%);
+}
+
+.todo {
+    width: 100%;
+    max-width: 540px;
+    background-color: #fff;
+    margin: 15px auto 15px;
+    padding: 40px 30px 40px;
+    border-radius: 24px;   
+}
+
+.todo h2{
+    transition: 1000ms;
+    display: flex;
+
+    user-select: none;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    /* text renklendirmesi başlangıcı */
+    
+    color: #312eff; background-image: 
+    -webkit-linear-gradient(0deg, #7e0281 0%, #6764ff 15%); 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+
+    /* text renklendirme bitişi */
+          
+        
+}
+
+.todo h2 img {
+    /* transition: 1000ms; */
+    width: 30px;
+    margin-left: 10px;
+}
+
+.listrow {
+    transition: 500ms;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+button{
+    transition: 500ms;
+    border:none;
+    outline: none;
+    padding: 16px 50px;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(0, 199, 66);
+    border-radius: 40px;
+    cursor: pointer;
+}
+ 
+/* görev listesi başlangıç */
+
+ul li{
+
+    border-radius: 24px;
+    background-color: #edeef0;
+    list-style: none;
+    font-size: 18px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+ul li::before{
+    transition: 1000ms;
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    /* background-color: red; */
+    border-radius: 50%;
+    background-image: url(../image/unchecked.png) ;
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 15px;
+}
+
+ul li:hover {
+    transition: 1000ms;
+    background-color: #cbcbcb;
+
+}
+
+ul li.checked {
+    
+
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    transition: 1000ms;
+
+    background-image: url(../image/icons8-checked-32.png) ;
+}
+
+/* görev listesi bitiş */
+
+/* çarpı başlangıç */
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 42px;
+    height: 46px;
+    font-size: 22px;
+    color: #555;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 0px 24px 24px 0px;
+}
+
+ul li span:last-child {
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    width: 42px;
+    height: 47px;
+    font-size: 22px;
+    color: #555;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 0px;
+}
+
+ul li span:hover{
+    background: #ff0000;
+    transition: 2000ms;
+}
+
+ul li span:last-child:hover{
+    background: #adfc04;
+    /* background-position: center; */
+    
+}
+/* çarpı bitiş */
+
+/* test kodu */
+.checkedbtn {
+
+    background-color: #333232;
+    padding: 16px 16px;
+    display: block;
+    justify-content: right;
+    color: #312eff; background-image: 
+    -webkit-linear-gradient(0deg, #1bcb00 15%, #003d82 65%); 
+    background-clip: text; 
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 1000ms;
+    text-align: right;
+}
