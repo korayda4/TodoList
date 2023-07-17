@@ -2,7 +2,8 @@ const inputBox = document.getElementById("input-box");
 const taskContainer = document.getElementById("taskContainer");
 
 // görev ekle fonksiyonu başlangıç
-
+let sil = document.createElement("span");
+let degis = document.createElement("span");
 function AddTask() {
   if (inputBox.value === "") {
     alert("Görev yazmanız gerekiyor.");
@@ -11,13 +12,12 @@ function AddTask() {
     li.innerHTML = inputBox.value;
     li.className = "task";
     inputBox.value = "";
-    let sil = document.createElement("span");
-    let duzenle = document.createElement("span");
-    duzenle.classList.add("last-child");
-    duzenle.innerHTML = "&#8803";
+    
+    degis.classList.add("last-child");
+    degis.innerHTML = "&#8803";
     sil.innerHTML = "\u00d7";
     li.appendChild(sil);
-    li.appendChild(duzenle);
+    li.appendChild(degis);
     taskContainer.appendChild(li);
     savedata();
   }
@@ -29,12 +29,12 @@ function AddTask() {
 
 taskContainer.addEventListener("click",function(tikla){
     if(tikla.target.tagName === "LI"){
-        tikla.target.classList.toggle("checked");
-        savedata ();
+      tikla.target.classList.toggle("checked");
+      savedata ();
     }
     else if (tikla.target.tagName === "SPAN"){
-        tikla.target.parentElement.remove();
-        savedata ();
+      tikla.target.parentElement.remove();
+      savedata ();
     }
 }, false)
 
@@ -46,12 +46,15 @@ taskContainer.addEventListener("click", function(event) {
   var duzenle = event.target;
 
   if (duzenle.className === "last-child") {
-    inputBox.value = duzenle.parentElement.textContent;
-    duzenle.parentElement.remove();
-    savedata();
-  } else if (duzenle.tagName === "SPAN") {
-    duzenle.parentElement.remove();
-    savedata();
+    
+  inputBox.value = duzenle.parentElement.firstChild.textContent;
+  duzenle.parentElement.remove();
+  savedata();
+  } 
+  else if (duzenle.tagName === "SPAN") {
+  duzenle.parentElement.remove();
+  savedata();
+
   }
 });
 
