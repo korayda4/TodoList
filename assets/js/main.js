@@ -12,6 +12,7 @@ function AddTask() {
   if (inputBox.value === "") {
     
     inputBox.className = "warn"
+    inputBox.focus()
 
   } else {
     let li = document.createElement("li");
@@ -55,7 +56,7 @@ taskContainer.addEventListener("click", function(event) {
   var duzenle = event.target;
 
   if (duzenle.className === "last-child") {
-    inputBox.value = duzenle.parentElement.textContent;
+    inputBox.value = duzenle.parentElement.firstChild.textContent;
     duzenle.parentElement.remove();
     savedata();
   } else if (duzenle.tagName === "SPAN") {

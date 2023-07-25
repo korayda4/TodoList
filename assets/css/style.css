@@ -187,4 +187,5 @@ ul li span:last-child:hover{
 
 .warn::placeholder {
     color: red !important;
+    font-size: larger;
 }
