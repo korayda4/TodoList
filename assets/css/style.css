@@ -184,3 +184,7 @@ ul li span:last-child:hover{
     transition: 1000ms;
     text-align: right;
 }
+
+.warn::placeholder {
+    color: red !important;
+}

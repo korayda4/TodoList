@@ -1,16 +1,24 @@
 const inputBox = document.querySelector("#input-box");
 const taskContainer = document.querySelector("#taskContainer");
 
+
+const ekleyici = document.querySelector("#eklebtn")
+
+ekleyici.addEventListener("click",AddTask)
+
 // görev ekle fonksiyonu başlangıç
 
 function AddTask() {
   if (inputBox.value === "") {
-    alert("Görev yazmanız gerekiyor.");
+    
+    inputBox.className = "warn"
+
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
     li.className = "task";
     inputBox.value = "";
+    inputBox.focus()
     let sil = document.createElement("span");
     let duzenle = document.createElement("span");
     duzenle.classList.add("last-child");
@@ -19,6 +27,7 @@ function AddTask() {
     li.appendChild(sil);
     li.appendChild(duzenle);
     taskContainer.appendChild(li);
+    inputBox.className = "input-box"
     savedata();
   }
 }
