@@ -2,12 +2,31 @@ const inputBox = document.querySelector("#input-box");
 const taskContainer = document.querySelector(".todo-list");
 const ekleyici = document.querySelector("#eklebtn");
 const filtreleme = document.querySelectorAll('[name="filter"]');
-const Leftİtem = document.querySelector(".footer-leftitem");
+const leftItem = document.querySelector(".footer-leftitem");
+const rightItem = document.querySelector(".footer-rightitem");
 
 const LeftTask = () => {
-  const itemLeft = Array.from(taskContainer.children).filter(item => item.className === "task").length;
-  Leftİtem.textContent = `${itemLeft} İtem Left`;
+  const itemLeft = Array.from(taskContainer.children).filter(item => item.classList.contains("task")).length;
+  leftItem.textContent = `${itemLeft} Item Left`;
 };
+
+function clearCompleted() {
+  const completedItems = Array.from(taskContainer.querySelectorAll('.completed'));
+  if (completedItems.length > 0) {
+    rightItem.textContent = "Clear Completed";
+    rightItem.addEventListener("click", () => {
+      for (const item of completedItems) {
+        item.remove();
+      }
+      rightItem.textContent = "";
+      LeftTask();
+      saveData();
+    });
+  } else {
+    rightItem.textContent = "";
+    rightItem.removeEventListener("click", null);
+  }
+}
 
 const addTask = () => {
   if (inputBox.value === "") {
@@ -42,67 +61,51 @@ taskContainer.addEventListener("dblclick", (t) => {
 
 const enableEdit = (todoItem) => {
   const todoText = todoItem.firstChild;
-  const originalText = todoText.textContent;
   const input = document.createElement("input");
-  input.value = originalText;
+  input.value = todoText.textContent.trim();
 
-  // replaceChild:ilk elementi ikincisi ile değiştir
   todoItem.replaceChild(input, todoText);
   input.focus();
 
-  // her klavyeye basışı al enter tıklandığında işlem yap
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-
-      // eğer boş değilse çalıştır
       if (input.value.trim() !== "") {
         todoText.textContent = input.value;
       }
-
-      // replaceChild:ilk elementi ikincisi ile değiştir
       todoItem.replaceChild(todoText, input);
       saveData();
     }
   });
 };
 
-
 taskContainer.addEventListener("click", (tikla) => {
-  // Tıklanan LI ise class ismine completed ekle
   if (tikla.target.tagName === "LI") {
     tikla.target.classList.toggle("completed");
+    clearCompleted();
     saveData();
     LeftTask();
-  }
-  // Tıklanan şeyin class ı sil ise tıklananın üst elementini sil
-  else if (tikla.target.classList.contains("sil")) {
+  } else if (tikla.target.classList.contains("sil")) {
     const parentElement = tikla.target.parentElement;
     parentElement.classList = "deletedtask";
     tikla.target.parentElement.firstChild.textContent = "Deleted Task";
     setTimeout(function() {
-      
       parentElement.remove();
-      LeftTask()
+      clearCompleted();
+      LeftTask();
       saveData();
     }, 900);
   }
 });
 
-// ul yi dataya kaydet
 const saveData = () => {
   localStorage.setItem("data", taskContainer.innerHTML);
 };
 
-// kayıtlı datayı yükle
 const loadData = () => {
   taskContainer.innerHTML = localStorage.getItem("data");
-  saveData();
   LeftTask();
 };
 
-
-
-// kaç işaretlenmemiş görev kaldı yazdır
 for (const filter of document.querySelectorAll('[name="filter"]')) {
   filter.addEventListener("click", function () {
     taskContainer.classList.value = `todo-list ${this.value}`;

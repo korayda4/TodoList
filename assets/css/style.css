@@ -258,4 +258,8 @@ input[type="radio"] {
     opacity: 0;
 }
 
+.footerdivright {
+    transition: 1000ms;
+    opacity: 1;
+}
 
