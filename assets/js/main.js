@@ -6,9 +6,10 @@ const leftItem = document.querySelector(".footer-leftitem");
 const rightItem = document.querySelector(".footer-rightitem");
 
 const LeftTask = () => {
-  const itemLeft = Array.from(taskContainer.children).filter(item => item.classList.contains("task")).length;
+  const itemLeft = [...taskContainer.children].filter(item => item.className === "task").length;
   leftItem.textContent = `${itemLeft} Item Left`;
 };
+
 
 function clearCompleted() {
   const completedItems = Array.from(taskContainer.querySelectorAll('.completed'));
