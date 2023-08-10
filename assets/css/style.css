@@ -8,7 +8,7 @@
     width: 100%;
     min-height: 100vh;
     padding: 10px;
-    background: linear-gradient(0deg, rgb(74, 0, 76) 0%, rgb(24, 0, 68) 100%);
+    background: rgb(255, 255, 255)
 }
 
 .todo {
@@ -22,22 +22,13 @@
 
 .todo h2{
     transition: 1000ms;
-    display: flex;
-
+    display: block;
+    font-size: 48px;
     user-select: none;
     text-align: center;
     align-items: center;
     margin-bottom: 10px;
-
-    /* text renklendirmesi başlangıcı */
-    
-    color: #312eff; background-image: 
-    -webkit-linear-gradient(0deg, #7e0281 0%, #6764ff 15%); 
-    background-clip: text; 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent;
-
-    /* text renklendirme bitişi */
+    color: #fc9eff; 
           
         
 }
@@ -54,7 +45,7 @@
     align-items: center;
     justify-content: space-between;
     background: #edeef0;
-    border-radius: 30px;
+    border-radius: 12px;
     padding-left: 20px;
     margin-bottom: 25px;
 }
@@ -82,7 +73,7 @@ button{
 
 ul li{
 
-    border-radius: 24px;
+    border-radius: 4px;
     background-color: #edeef0;
     list-style: none;
     font-size: 18px;
@@ -114,14 +105,14 @@ ul li:hover {
 
 }
 
-ul li.checked {
+ul li.completed {
     
 
-    color: #555;
+    color: #55555598;
     text-decoration: line-through;
 }
 
-ul li.checked::before{
+ul li.completed::before{
     transition: 1000ms;
 
     background-image: url(../image/icons8-checked-32.png) ;
@@ -140,32 +131,15 @@ ul li span {
     color: #555;
     line-height: 48px;
     text-align: center;
-    border-radius: 0px 24px 24px 0px;
+    border-radius: 4px;
 }
 
-ul li span:last-child {
-    position: absolute;
-    right: 40px;
-    top: 0px;
-    width: 42px;
-    height: 45px;
-    font-size: 22px;
-    color: #555;
-    line-height: 46px;
-    text-align: center;
-    border-radius: 0px;
-}
 
 ul li span:hover{
     background: #ff0000;
     transition: 2000ms;
 }
 
-ul li span:last-child:hover{
-    background: #adfc04;
-    /* background-position: center; */
-    
-}
 /* çarpı bitiş */
 
 /* test kodu */
@@ -189,3 +163,79 @@ ul li span:last-child:hover{
     color: red !important;
     font-size: larger;
 }
+
+.task {
+    position: relative;
+    /* margin-bottom: 10px; */
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      width: 5px;
+    }
+    to {
+      opacity: 1;
+      width: 480px;
+    }
+  }
+
+/* .task:not(:last-child) {
+    border-bottom: 1px solid rgba(0 , 0 , 0 , 0.1);
+}; */
+
+  
+.radiomenu {
+    
+    display: flex;
+    gap: 15px;
+    padding: 24px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    max-width: 500px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  }
+
+.radiomenu label {
+    cursor: pointer;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+
+.todo-list.completed li:not(.task.completed) {
+    display: none;
+}
+
+.todo-list.active li.task.completed{
+    display: none;
+}
+
+
+.footerdiv {
+    position: absolute;
+    margin-right: 22rem;
+}
+
+.footerdivright {
+    position: absolute;
+    margin-left: 22rem;
+}
+
+.deletedtask {
+    transition:700ms;
+    background-color: rgb(250, 0, 0);
+    opacity: 0;
+}
+
+

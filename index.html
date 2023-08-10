@@ -10,19 +10,32 @@
 <body>
     <div class="container">
         <div class="todo">
-            <h2>Görev Listesi <img src="assets/image/icons8-microsoft-todo-2019-32.png" alt=""></h2>
+            <h2>Todos</h2>
             <div class="listrow">
                 <input type="text" id="input-box" class="input-box" placeholder=" Görev Ekle">
-                <button id="eklebtn">Ekle</button>
             </div>
-            <ul id="taskContainer">
+            <ul class="todo-list">
                 
                 <!-- <li class="checked"> Görev 1 </li>
                 <li> Görev 2 </li>
                 <li> Görev 3 </li> -->
             </ul>
-            <!-- <button class="checkedbtn" onclick="GetChecked()">Tamamlananlar</button> -->
+            <div class="radiomenu">
+
+                <!-- item left olayı -->
+                <div class="footerdiv"><span class="footer-leftitem">0 İtem Left</span></div>
+
+
+                <label><input type="radio" name="filter" value="all">All</label>
+                
+                <label><input type="radio" name="filter" value="active">Actives</label>
+
+                <label><input type="radio" name="filter" value="completed">Completed</label>
+
+
+            </div> 
         </div>
+        
     </div>
 
 </body>
