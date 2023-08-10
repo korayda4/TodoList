@@ -53,11 +53,10 @@ const enableEdit = (todoItem) => {
   // her klavyeye basışı al enter tıklandığında işlem yap
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      const newText = input.value;
 
       // eğer boş değilse çalıştır
-      if (newText.trim() !== "") {
-        todoText.textContent = newText;
+      if (input.value.trim() !== "") {
+        todoText.textContent = input.value;
       }
 
       // replaceChild:ilk elementi ikincisi ile değiştir
