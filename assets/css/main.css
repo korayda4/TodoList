@@ -42,7 +42,7 @@ body {
 }
 
 .todo h2{
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
   display: block;
   font-size: 48px;
   user-select: none;
@@ -59,7 +59,7 @@ body {
 }
 
 .listrow {
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,14 +103,14 @@ ul li{
 }
 
 ul li::before{
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
   content: '';
   position: absolute;
   height: 28px;
   width: 28px;
   /* background-color: red; */
   border-radius: 50%;
-  background-image: url(image/unchecked.png) ;
+  background-image: url(../image/unchecked.png) ;
   background-size: cover;
   background-position: center;
   top: 8px;
@@ -118,7 +118,7 @@ ul li::before{
 }
 
 ul li:hover {
-  transition:all ease-in-out  1000ms;
+  transition:all ease-in-out  300ms;
   background-color: #cbcbcb;
 }
 
@@ -128,8 +128,8 @@ ul li.completed {
 }
 
 ul li.completed::before{
-  transition:all ease-in-out  1000ms;
-  background-image: url(image/icons8-checked-32.png) ;
+  transition:all ease-in-out  300ms;
+  background-image: url(../image/icons8-checked-32.png) ;
 }
 
 /* görev listesi bitiş */
@@ -150,7 +150,7 @@ ul li span {
 
 ul li span:hover{
   background: #ff0000;
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
 }
 
 /* çarpı bitiş */
@@ -167,7 +167,7 @@ ul li span:hover{
   -webkit-background-clip: text;  
   -webkit-text-fill-color: transparent;
   cursor: pointer;
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
   text-align: right;
 }
 
@@ -240,14 +240,14 @@ input[type="radio"] {
 }
 
 .deletedtask {
-  transition:all ease-in-out 300ms;
+  transition:all ease-in-out 150ms;
   background-color: rgb(250, 0, 0);
   opacity: 0;
 }
 
 .footerdivright {
   cursor: pointer;
-  transition:all ease-in-out  300ms;
+  transition:all ease-in-out  150ms;
   opacity: 1;
 }
 

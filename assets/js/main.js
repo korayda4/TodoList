@@ -15,6 +15,9 @@ function clearCompleted() {
   const completedItems = [...taskContainer.querySelectorAll('.completed')];
   completedItems.forEach(element => {
     element.remove();
+  if([...taskContainer.children].length <= 7){
+      taskContainer.id = ""
+  }
   });
 }
 rightItem.addEventListener('click', clearCompleted);
@@ -84,7 +87,7 @@ taskContainer.addEventListener("click", (tikla) => {
       }
       parentElement.remove();
       systemFunction()
-    }, 900);
+    }, 450);
   }
 });
 
